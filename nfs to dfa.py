@@ -53,4 +53,22 @@ def find_other_rows():
                 dfa[new_states[0]][paths[i]] = single_str   
         
         new_states.remove(new_states[0])    
+def print_dfa():
+    print("\nDFA :- \n")    
+    print(dfa)                                           #Print the DFA
+    print("\nPrinting DFA table :- ")
+    dfa_table = pd.DataFrame(dfa)
+    print(dfa_table.transpose())
+
+
+
+dfa_final_states = []
+
+def find_dfa_final_state():
+    dfa_states = list(dfa.keys())
+    for x in dfa_states:
+        for i in x:
+            if i in nfa_final_state:
+                dfa_final_states.append(x)
+                break
 
