@@ -62,13 +62,19 @@ def print_dfa():
 
 
 
-dfa_final_states = []
+    dfa_final_states = []
 
-def find_dfa_final_state():
-    dfa_states = list(dfa.keys())
-    for x in dfa_states:
-        for i in x:
-            if i in nfa_final_state:
-                dfa_final_states.append(x)
-                break
 
+
+def main():
+    print_nfa()
+    find_first_row_dfa()
+    find_other_rows()
+    print_dfa()
+    find_dfa_final_state()
+
+    print("\nFinal states of the DFA: ",dfa_final_states) 
+
+
+if __name__ == '__main__':
+    main()
