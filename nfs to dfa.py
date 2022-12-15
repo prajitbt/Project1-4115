@@ -22,6 +22,10 @@ def print_nfa():
     
 new_states = []                       
 dfa = {} 
+keys_list = list(list(nfa.keys())[0])
+paths = list(nfa[keys_list[0]].keys()) 
+
+
 def find_first_row_dfa():
     dfa[keys_list[0]] = {}                      #creating a nested dictionary in dfa 
     for i in range(Total_transitions):
