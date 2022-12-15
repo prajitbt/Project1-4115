@@ -22,3 +22,31 @@ def print_nfa():
     
 new_states = []                       
 dfa = {} 
+def find_first_row_dfa():
+    dfa[keys_list[0]] = {}                      #creating a nested dictionary in dfa 
+    for i in range(Total_transitions):
+        var = "".join(nfa[keys_list[0]][paths[i]])   #Representing all elements in single string
+        dfa[keys_list[0]][paths[i]] = var            #assigning the state in DFA table
+        if var not in keys_list:                      
+            new_states.append(var)                  
+            keys_list.append(var)                       
+        
+
+
+def find_other_rows():
+    while len(new_states) != 0:                     
+        dfa[new_states[0]] = {}                     
+        for _ in range(len(new_states[0])):
+            for i in range(len(paths)):
+                temp = []                                
+                for j in range(len(new_states[0])):
+                    temp += nfa[new_states[0][j]][paths[i]]  #taking the union of the states
+                single_str = ""
+                single_str = single_str.join(temp)                         
+                if single_str not in keys_list:                   
+                    new_states.append(single_str)            
+                    keys_list.append(single_str)                  
+                dfa[new_states[0]][paths[i]] = single_str   
+        
+        new_states.remove(new_states[0])    
+
