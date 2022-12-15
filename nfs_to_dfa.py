@@ -52,7 +52,8 @@ def find_other_rows():
                     keys_list.append(single_str)                  
                 dfa[new_states[0]][paths[i]] = single_str   
         
-        new_states.remove(new_states[0])    
+        new_states.remove(new_states[0])  
+        
 def print_dfa():
     print("\nDFA :- \n")    
     print(dfa)                                           #Print the DFA
@@ -62,7 +63,7 @@ def print_dfa():
 
 
 
-    dfa_final_states = []
+dfa_final_states = []
 
 def find_dfa_final_state():
     dfa_states = list(dfa.keys())
