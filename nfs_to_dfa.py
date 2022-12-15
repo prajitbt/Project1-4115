@@ -64,6 +64,13 @@ def print_dfa():
 
     dfa_final_states = []
 
+def find_dfa_final_state():
+    dfa_states = list(dfa.keys())
+    for x in dfa_states:
+        for i in x:
+            if i in nfa_final_state:
+                dfa_final_states.append(x)
+                break
 
 
 def main():
